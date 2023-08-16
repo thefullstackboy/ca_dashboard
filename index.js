@@ -23,6 +23,12 @@ mongoose.connect('mongodb://127.0.0.1:27017/cadashboard', { useNewUrlParser: tru
         console.log(e)
     })  
 
+    app.get("/list", async (req, resp) => {
+        let data = await Service.find();
+        resp.send(data);
+    })
+    
+
 
 app.listen(3000,()=>{
      console.log("App IS LISTENING ON PORT 3000!")
