@@ -1,9 +1,5 @@
-async function getUsers() {
-    let response = await fetch("http://localhost:3000/list");
-    let data = await response.json()
-    return data;
-}
-
-getUsers().then(data => console.log(data));
-
-
+async function logMovies() {
+    const response = await fetch("http://example.com/movies.json");
+    const movies = await response.json();
+    console.log(movies);
+  }
