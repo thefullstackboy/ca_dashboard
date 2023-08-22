@@ -14,22 +14,37 @@ mongoose.connect('mongodb://127.0.0.1:27017/cadashboard', { useNewUrlParser: tru
         console.log(err)
     })
 
-    const Service = require('./models/service');  
+    const Service = require('./models/service');    
 
-    
-    Service.insertMany(seedServices)
-    .then(res => {
-        console.log(res)
-    })
-    .catch(e => {
-        console.log(e)
-    })  
+    app.get("/list", async (req, res,next) => {
+        try {
+            const products = await Service.find();
+            res.json(products);
+          } catch (error) {
+            res.json({ message: error });
+          }
+          next()
+    }) 
+ 
+    app.patch("/:productId",async (req, res,next) => {
+        try {
+            const product = {              
+              price: req.body.price,             
+            };
+        
+            const updatedProduct = await Service.findByIdAndUpdate(
+              { _id: req.params.productId },
+              product
+            );
+            res.json(updatedProduct);
+            res.send(updatedProduct);
 
-    app.get("/list", async (req, resp) => {
-        let data = await Service.find();
-        resp.send(data);
-    })
-    
+            console.log(updatedProduct)
+          } catch (error) {
+            res.json({ message: error });
+          }
+          next()
+    })        
 
 
 app.listen(3000,()=>{

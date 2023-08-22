@@ -1,85 +1,74 @@
-<!doctype html>
+
+
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
-
-    <title>Hello, world!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>aapkaCA</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/servicev2/ca_service.css' %}" type="text/css" />
   </head>
   <body>
-  <!-- As a link -->
-<nav class="navbar  nav-bg-color">
-    <div class="text-center mt-2">       
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>       
-      </div>      
-</nav>
-
-<div class="container">
-    <div class="row text-center mt-3">
-        <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12">
-            <h5 style="color: #6558F5;">CA Dashboard</h5>
+    <header style="border-bottom: 1px solid dimgrey;">
+      <nav class="navbar navbar-light bg-light navbar-fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            aapkaCA
+          </a>
         </div>
-    </div>
-</div>
-<hr>
+      </nav>
+    </header>
 
-<div class="container">
-  <div class="row">
-    <div class="col text-left servicebtn mt-2">
-      <button type="button" class="btn btn-primary servicebtn">Services</button>
-      <button type="button" class="btn btn-primary mt-2">Services</button>
-      <button type="button" class="btn btn-primary mt-2">Services</button>
-    </div>
-    <div class="vertical"></div>
-    <div class="col-8 text-left">
-      <div class="borderbox1">
-        <input type="checkbox">
-        <label class="itlabel" id="employees">ITR FILLING     
-        </label>
-        <input type="text">
+    <div class="row">
+      <div class="col-lg-2" style="">
+        <ul class="nav nav-pills" style="position: fixed;">
+          <li class="nav-item rounded" style="width: 90%; text-align: center; margin: 8px auto;">
+            <a href="#" class="nav-link active" aria-current="page">
+              Services
+            </a>
+          </li>
+
+          <li class="nav-item rounded" style="width: 90%; text-align: center; margin: 8px auto;">
+            <a href="#" class="nav-link" aria-current="page" style="border: 1px solid grey; color:black;">
+              Leads
+            </a>
+          </li>
+
+          <li class="nav-item rounded" style="width: 90%; text-align: center; margin: 8px auto">
+            <a href="#" class="nav-link" aria-current="page" style="border: 1px solid grey; color:black;">
+              Sales
+            </a>
+          </li>
+
+        </ul>
       </div>
 
-      <div class="borderbox1 mt-2">
-        <input type="checkbox">
-        <label class="itlabel">ITR FILLING     
-        </label>
-        <input type="text">
+
+      <div class="col-md-10" style="height: 100vh; padding: 8px; font-size: 1.2rem;">
+        <div class="list-group">
+        
+            <label class="list-group-item" style="border: none; margin: 4px;">
+              <div class="row table-hover" id="{{service.id}}">
+                <div class="col-md-10" >
+                  <input class="form-check-input me-1" type="checkbox" value="">
+                </div>
+                <div class="col-md-1" >
+                  <input class="form-control" type="number" name="amount" id="amount-1" value="{{service.starting_price}}" style="text-align: center"/>
+                </div>
+                <div class="col-md-1" >
+                  <button class="btn btn-primary">Update</button>
+                </div>
+              </div>
+            </label>
+        
+
+        </div>
       </div>
-
-      <div class="borderbox1 mt-2">
-        <input type="checkbox">
-        <label class="itlabel" id="dataContainer">ITR FILLING     
-        </label>
-        <input type="text">
-      </div>
-   
     </div>
-    <div class="col text-right servicebtn3 mt-2">
-      <button type="button" class="btn btn-primary">Update</button>
-      <button type="button" class="btn btn-primary mt-5">Update</button>
-      <button type="button" class="btn btn-primary mt-5">Update</button>
-    </div>
-  </div>
-  </div>
-
-
-<!-- As a heading -->
-<!-- <nav class="navbar navbar-light bg-light">
-  <span class="navbar-brand mb-0 h1">Navbar</span>
-</nav> -->
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="./js.js"></script>
   </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    <script src="{% static 'js/servicev2/ca_service.js' %}"></script>
 </html>

@@ -1,7 +1,7 @@
  const seedServices = [
     {
         service_name: 'Company Registration,',
-        price: 1.00,           
+        price: 5.00,           
     },
     {
         service_name: '15 CA CB',
