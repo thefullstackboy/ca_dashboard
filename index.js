@@ -32,14 +32,13 @@ mongoose.connect('mongodb://127.0.0.1:27017/cadashboard', { useNewUrlParser: tru
               price: req.body.price,             
             };
         
-            const updatedProduct = await Service.findByIdAndUpdate(
+            const updatedPrice = await Service.findByIdAndUpdate(
               { _id: req.params.productId },
               product
             );
-            res.json(updatedProduct);
-            res.send(updatedProduct);
-
-            console.log(updatedProduct)
+            res.json(updatedPrice);
+            res.send(updatedPrice);
+         
           } catch (error) {
             res.json({ message: error });
           }
