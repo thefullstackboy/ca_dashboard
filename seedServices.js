@@ -208,3 +208,11 @@
 ]
 
 module.exports  = seedServices;
+
+Service.insertMany(seedServices)
+.then(res => {
+    console.log(res)
+})
+.catch(e => {
+    console.log(e)
+})

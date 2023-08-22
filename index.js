@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const seedServices = require('./seedServices');
 var cors = require('cors');
 app.use(cors());
 
