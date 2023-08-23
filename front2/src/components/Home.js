@@ -23,52 +23,36 @@ export default function () {
             </div>
           </nav>
 
-          <div className='container-fluid border border-primary'>
+          <div className='container-fluid'>
             <div className='row'>
               <div className='col-md-3 col-lg-2 col-sm-12 col-xl-2 mt-5'>
-              <ul class="list-group">
-                 <li class="list-group-item active" aria-current="true">Services</li>
-                 <li class="list-group-item mt-3">Leads</li>
-                 <li class="list-group-item mt-3">Sales</li>
-              </ul>
+                  <ul class="list-group">
+                    <li class="list-group-item active" aria-current="true">Services</li>
+                    <li class="list-group-item mt-3">Leads</li>
+                    <li class="list-group-item mt-3">Sales</li>
+                  </ul>
               </div> 
 
-              <div className='col-md-1 col-lg-2 col-sm-12 col-xl-2 mt-3'>          
-              <h6>Checkbox</h6>
-              <label class="container text-center"><input type="checkbox"/>
-                 <span class="checkmark"></span>
-              </label>            
-              </div> 
+              <div className='col-md-9 mt-3'>
+       
+                {data.map(item => (
+                  <>
+                         <label class="container">
+  <input type="checkbox" />
+  <span class="checkmark"></span>
+</label>
+                <span className='border border-primary box'>
+          <p key={item.id}>{item.service_name}</p>   
+          <input type='number' value={item.price} />         
+          </span>
+          <button type="button" class="btn btn-primary">Update</button> 
+                  </>
 
-              <div className='col-md-5 col-lg-2 col-sm-12 col-xl-2 mt-3 '>          
-              <h6>Service Name</h6>   
-              {data.map(item => (
-                <>
-                
-                 <p key={item.id} class="text-lowercase fs-5 mt-3">{item.service_name}</p>
-                </>
-        ))}        
-              </div> 
-
-              <div className='col-md-1 col-lg-2 col-sm-12 col-xl-2 mt-3'>          
-              <h6>Price</h6>  
-              {data.map(item => (
-                <>                
-                 <input key={item.id} class="text-lowercase fs mt-3" type="number" value={item.price}/>
-                </>
         ))}
-                    
-              </div> 
-
-              <div className='col-md-1 col-lg-2 col-sm-12 col-xl-2 mt-3'>          
-              <h6>Update</h6>  
-              <button type="button" class="btn btn-primary">Update</button>
-
-                    
-              </div> 
-              
-             
-            </div>
+               
+               
+              </div>
+            </div>   
           </div>     
     </div>
   )
