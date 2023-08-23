@@ -25,6 +25,6 @@ app.use(cors());
 // route Middlewares
 app.use("/api/services", serviceRoutes);    
     
-app.listen(3000,()=>{
-     console.log("App IS LISTENING ON PORT 3000!")
+app.listen(3001,()=>{
+     console.log("App IS LISTENING ON PORT 3001!")
 })    
