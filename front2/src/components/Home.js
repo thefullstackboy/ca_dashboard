@@ -42,8 +42,21 @@ export default function () {
   <span class="checkmark"></span>
 </label>
                 <span className='border border-primary box'>
-          <p key={item.id}>{item.service_name}</p>   
-          <input type='number' value={item.price} />         
+                <div class="row g-3 align-items-center">
+  <div class="col-auto">
+    <label for="inputPassword6" class="col-form-label">{item.service_name}</label>
+    <input type="number" id="inputPassword6" class="form-control" value={item.price} aria-describedby="passwordHelpInline"/>
+  </div>
+  <div class="col-auto">
+    
+
+  </div>
+  <div class="col-auto">
+    <span id="passwordHelpInline text-right" class="form-text">
+
+    </span>
+  </div>
+</div>       
           </span>
           <button type="button" class="btn btn-primary">Update</button> 
                   </>

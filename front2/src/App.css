@@ -77,7 +77,8 @@
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box
+  box-sizing: border-box;
+  height: 53px;
 }
 
 /* The container */
@@ -148,14 +149,19 @@
   transform: rotate(45deg);
 }
 
-input[type=number] { 
+input[type=number] {  
+  margin-top: -18%;
   text-align: right;
- margin-left: 65%;
- margin-top: -10%;
-   
-   
+  margin-left: 208%;
+  text-align: left;
 }
 
 .poco {
   background-color: #6558F5;
+}
+
+.serviceborder {
+  border: 2px solid red;
+  width: 250px;  
+  float: left;
 }
