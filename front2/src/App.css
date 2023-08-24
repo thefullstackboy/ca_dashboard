@@ -158,10 +158,16 @@ input[type=number] {
 
 .poco {
   background-color: #6558F5;
+
 }
 
 .serviceborder {
   border: 2px solid red;
   width: 250px;  
   float: left;
+}
+
+.abe {
+  width: 317px;
+  padding: 5px;
 }
