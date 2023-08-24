@@ -27,7 +27,7 @@ export default function () {
             <div className='row'>
               <div className='col-md-3 col-lg-2 col-sm-12 col-xl-2 mt-5'>
                   <ul class="list-group">
-                    <li class="list-group-item active" aria-current="true">Services</li>
+                    <li class="list-group-item poco text-white" aria-current="true">Services</li>
                     <li class="list-group-item mt-3">Leads</li>
                     <li class="list-group-item mt-3">Sales</li>
                   </ul>
@@ -58,7 +58,7 @@ export default function () {
   </div>
 </div>       
           </span>
-          <button type="button" class="btn btn-primary">Update</button> 
+          <button type="button" class="btn btn-primary poco">Update</button> 
                   </>
 
         ))}
