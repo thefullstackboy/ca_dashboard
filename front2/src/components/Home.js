@@ -1,3 +1,4 @@
+import {Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import Navbar from './Navbar';
@@ -25,7 +26,7 @@ export default function () {
               <div className='col-md-3 col-lg-2 col-sm-12 col-xl-2 mt-5'>
                   <ul className="list-group">
                     <li className="list-group-item poco text-white" aria-current="true">Services</li>
-                    <li className="list-group-item mt-3">Leads</li>
+                    <Link className="list-group-item mt-3" to="/leads">Leads</Link>
                     <li className="list-group-item mt-3">Sales</li>
                   </ul>
               </div> 

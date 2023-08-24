@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from './Navbar'
 import leadsData from './LeadsData'
+import {Link } from "react-router-dom";
 
 function Leads() {
   return (
@@ -10,8 +11,8 @@ function Leads() {
             <div className='row'>
               <div className='col-md-3 col-lg-2 col-sm-12 col-xl-2 mt-5'>
                   <ul class="list-group">
-                    <li className="list-group-item poco text-white" aria-current="true">Services</li>
-                    <li className="list-group-item mt-3">Leads</li>
+                    <Link className="list-group-item" aria-current="true" to="/">Services</Link>
+                    <li className="list-group-item mt-3 poco text-white">Leads</li>
                     <li className="list-group-item mt-3">Sales</li>
                   </ul>
               </div> 
