@@ -27,7 +27,7 @@ export default function () {
                   <ul className="list-group">
                     <li className="list-group-item poco text-white" aria-current="true">Services</li>
                     <Link className="list-group-item mt-3" to="/leads">Leads</Link>
-                    <li className="list-group-item mt-3">Sales</li>
+                    <Link className="list-group-item mt-3" to="/sales">Sales</Link>
                   </ul>
               </div> 
 
