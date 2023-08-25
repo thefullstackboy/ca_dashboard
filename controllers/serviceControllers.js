@@ -1,4 +1,5 @@
-const Service = require('../models/service');   
+const Service = require('../models/service');
+const Leads = require('../models/leads');
 
 // Get list
 const serviceList = async(req,res,next)=> {
@@ -9,6 +10,16 @@ const serviceList = async(req,res,next)=> {
         res.json({ message: error });
       }
       next()
+}
+
+const leadsList = async(req,res,next)=> {
+  try {
+      const products = await Leads.find();
+      res.json(products);
+    } catch (error) {
+      res.json({ message: error });
+    }
+    next()
 }
 
 // Update price
@@ -27,8 +38,8 @@ const price_update = async (req, res) => {
         res.json({ message: error });
       }
 };
-
 module.exports = {
     serviceList,
-    price_update
+    price_update,
+    leadsList
   }
