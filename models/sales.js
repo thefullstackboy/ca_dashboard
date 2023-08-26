@@ -10,7 +10,7 @@ const SalesSchema = new mongoose.Schema({
         type:String,
         required: true,       
     },
-    currentStatus: {
+    current_status: {
         type:String,
         required: false,       
     },  

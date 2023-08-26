@@ -67,7 +67,7 @@ function Sales() {
                     data.map((index)=>{
                         return (
                             <>
-                             <p className='border border-primary abe3 text-center'  key={index.pk}>{index.status2}</p>
+                             <p className='border border-primary abe3 text-center'  key={index.pk}>{index.current_status}</p>
                             </>
                         )
                     })

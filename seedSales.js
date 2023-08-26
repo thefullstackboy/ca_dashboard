@@ -1,33 +1,32 @@
 const salesData = [
     {
-        email: "abc@gmail.com",
-        service_name: "Company Registration",
-        currentStatus:"paid",
-        date: "2022-12-27 10:09:20.430322",
-       
-    },
-    {    
         email: "email1@gmail.com",
         service_name: "Company Registration",
-        currentStatus:"paid",
+        current_status:"paid",
         date: "2022-12-27 10:09:20.430322",
     },
-    {       
-        email: "email1@gmail.com",
+    {
+        email: "email2@gmail.com",
         service_name: "Company Registration",
-        currentStatus:"paid",
+        current_status:"paid",
         date: "2022-12-27 10:09:20.430322",
     },
-    {      
-        email: "email1@gmail.com",
+    {
+        email: "email3@gmail.com",
         service_name: "Company Registration",
-        currentStatus:"paid",
+        current_status:"paid",
         date: "2022-12-27 10:09:20.430322",
     },
-    {      
-        email: "email1@gmail.com",
+    {
+        email: "email4@gmail.com",
         service_name: "Company Registration",
-        currentStatus:"paid",
+        current_status:"paid",
+        date: "2022-12-27 10:09:20.430322",
+    },
+    {
+        email: "email5@gmail.com",
+        service_name: "Company Registration",
+        current_status:"paid",
         date: "2022-12-27 10:09:20.430322",
     },    
   ]

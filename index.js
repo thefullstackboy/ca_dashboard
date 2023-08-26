@@ -5,9 +5,9 @@ let cors = require('cors');
 app.use(cors());
 const seedServices = require('./seedServices')
 const leadsData = require('./seedLeads')
+const salesData = require("./seedSales");
 // Import routes
 const serviceRoutes = require("./routes/service");
-const salesData = require("./seedSales");
 
 const Service = require('./models/service');
 const Leads = require('./models/leads');
