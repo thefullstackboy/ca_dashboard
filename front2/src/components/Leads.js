@@ -1,9 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import Navbar from './Navbar'
-import leadsData from './LeadsData'
 import {Link } from "react-router-dom";
+const apiUrl = process.env.REACT_APP_LEAD_URL;
 
 function Leads() {
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+      axios.get(`${apiUrl}`)
+        .then(response => {
+          setData(response.data);          
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    }, [Leads]);
   return (
     <div>
         <Navbar/>
@@ -19,10 +32,10 @@ function Leads() {
             
             <div className='col-md-3 col-lg-3 col-sm-3 col-xl-3 mt-5  '>
                 {
-                    leadsData.map((index)=>{
+                    data.map((index)=>{
                         return (
                             <>
-                             <p className='border border-primary abe'  key={index.pk}>{index.fields.email}</p>
+                             <p className='border border-primary abe'  key={index.pk}>{index.email}</p>
                             </>
                         )
                     })
@@ -30,10 +43,10 @@ function Leads() {
             </div>
             <div className='col-md-3 col-lg-3 col-sm-3 col-xl-3 mt-5 '>
             {
-                    leadsData.map((index)=>{
+                    data.map((index)=>{
                         return (
                             <>
-                             <p className='border border-primary abe' key={index.pk}>{index.fields.service_name}</p>
+                             <p className='border border-primary abe' key={index.pk}>{index.service_name}</p>
                             </>
                         )
                     })
@@ -41,10 +54,10 @@ function Leads() {
             </div>
             <div className='col-md-3 col-lg-3 col-sm-3 col-xl-3 mt-5 '>
             {
-                    leadsData.map((index)=>{
+                    data.map((index)=>{
                         return (
                             <>
-                             <p className='border border-primary abe'  key={index.pk}>{index.fields.lead_at}</p>
+                             <p className='border border-primary abe'  key={index.pk}>{index.date}</p>
                             </>
                         )
                     })
