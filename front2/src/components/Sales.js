@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import Navbar from './Navbar'
-import leadsData from './LeadsData'
 import {Link } from "react-router-dom";
+const apiUrl = process.env.REACT_APP_SALE_URL;
 
 function Sales() {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+      axios.get(`${apiUrl}`)
+        .then(response => {
+          setData(response.data);          
+        })
+        .catch(error => {
+          console.error('Error fetching data:', error);
+        });
+    }, []);
   return (
     <div>
         <Navbar/>
@@ -19,10 +31,10 @@ function Sales() {
             
             <div className='col-md-2 col-lg-2 col-sm-2 col-xl-2 mt-5 '>
                 {
-                    leadsData.map((index)=>{
+                    data.map((index)=>{
                         return (
                             <>
-                             <p className='border border-primary abe2'  key={index.pk}>{index.fields.email}</p>
+                             <p className='border border-primary abe2'  key={index.pk}>{index.email}</p>
                             </>
                         )
                     })
@@ -30,10 +42,10 @@ function Sales() {
             </div>
             <div className='col-md-2 col-lg-2 col-sm-2 col-xl-2 mt-5 '>
             {
-                    leadsData.map((index)=>{
+                    data.map((index)=>{
                         return (
                             <>
-                             <p className='border border-primary abe2' key={index.pk}>{index.fields.service_name}</p>
+                             <p className='border border-primary abe2' key={index.pk}>{index.service_name}</p>
                             </>
                         )
                     })
@@ -41,10 +53,10 @@ function Sales() {
             </div>
             <div className='col-md-2 col-lg-2 col-sm-2 col-xl-2 mt-5'>
             {
-                    leadsData.map((index)=>{
+                    data.map((index)=>{
                         return (
                             <>
-                             <p className='border border-primary abe2'  key={index.pk}>{index.fields.lead_at}</p>
+                             <p className='border border-primary abe2'  key={index.pk}>{index.date}</p>
                             </>
                         )
                     })
@@ -52,10 +64,10 @@ function Sales() {
             </div>  
             <div className='col-md-2 col-lg-2 col-sm-2 col-xl-2 mt-5'>
             {
-                    leadsData.map((index)=>{
+                    data.map((index)=>{
                         return (
                             <>
-                             <p className='border border-primary abe3 text-center'  key={index.pk}>{index.fields.status}</p>
+                             <p className='border border-primary abe3 text-center'  key={index.pk}>{index.status2}</p>
                             </>
                         )
                     })

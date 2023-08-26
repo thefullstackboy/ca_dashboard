@@ -16,7 +16,7 @@ function Leads() {
         .catch(error => {
           console.error('Error fetching data:', error);
         });
-    }, [Leads]);
+    }, []);
   return (
     <div>
         <Navbar/>

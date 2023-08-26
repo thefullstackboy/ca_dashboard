@@ -10,14 +10,14 @@ const SalesSchema = new mongoose.Schema({
         type:String,
         required: true,       
     },
+    currentStatus: {
+        type:String,
+        required: false,       
+    },  
     date: {
         type:Date,
         required: true,       
-    },
-    status2: {
-        type:String,
-        required: false,       
-    },      
+    }      
 })
 
 const Sales = mongoose.model('Sales',SalesSchema);
