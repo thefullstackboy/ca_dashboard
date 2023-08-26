@@ -7,15 +7,22 @@ const seedServices = require('./seedServices')
 const leadsData = require('./seedLeads')
 // Import routes
 const serviceRoutes = require("./routes/service");
+const salesData = require("./seedSales");
 
 const Service = require('./models/service');
 const Leads = require('./models/leads');
+const Sales = require('./models/sales');
+
 
 Service.insertMany(seedServices).then(result => {
   console.log(result)
 })
 
 Leads.insertMany(leadsData).then(result => {
+  console.log(result)
+})
+
+Sales.insertMany(salesData).then(result => {
   console.log(result)
 })
 
