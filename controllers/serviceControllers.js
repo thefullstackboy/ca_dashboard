@@ -1,6 +1,8 @@
 const Service = require('../models/service');
 const Leads = require('../models/leads');
 const Sales =  require('../models/leads');
+const Register = require('../models/register');
+let bcrypt = require('bcrypt');
 
 // Get list
 const serviceList = async(req,res,next)=> {
@@ -34,7 +36,7 @@ const salesList = async(req,res,next)=> {
 }
 
 // Update price
-const price_update = async (req, res) => {
+const price_update = async (req, res, next) => {
     try {
         const product = {      
           price: req.body.price,      
@@ -49,9 +51,29 @@ const price_update = async (req, res) => {
         res.json({ message: error });
       }
 };
+
+const registerForm = async(req, res, next) => {
+try {
+const email = req.body.email;
+let password = req.body.password;
+password = await bcrypt.hash(password, 10);
+
+  const data = new Register({
+    email: email,
+    password: password
+})
+
+  const dataToSave = await data.save();
+  res.status(200).json(dataToSave)
+}
+  catch (error) {
+      res.status(400).json({message: error.message})    
+  }
+}
 module.exports = {
     serviceList,
     price_update,
     leadsList,
-    salesList    
+    salesList,
+    registerForm    
   }
