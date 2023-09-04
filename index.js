@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+require("dotenv").config();
 let cors = require('cors');
 app.use(cors());
 const seedServices = require('./seedServices')
