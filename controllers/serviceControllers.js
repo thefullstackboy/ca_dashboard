@@ -106,8 +106,9 @@ const loginForm = async(req, res, next) => {
       // user
       res.status(200).json(user);
     }
-    res.status(400).send("Invalid Credentials");
+
   } catch (err) {
+    res.status(400).send("Invalid Credentials");
     console.log(err);
   }
   }
