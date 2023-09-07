@@ -118,11 +118,17 @@ const loginForm = async(req, res, next) => {
     console.log(err);
   }
   }
+
+  const forgotPassword = async(req, res, next) => {
+    
+
+  }
 module.exports = {
     serviceList,
     price_update,
     leadsList,
     salesList,
     registerForm,
-    loginForm    
+    loginForm,
+    forgotPassword   
   }
