@@ -2,6 +2,7 @@ import React from 'react'
 import {Link } from "react-router-dom";
 import axios from 'axios'
 import { useForm } from "react-hook-form";
+const apiUrl = process.env.REACT_APP_REGISTER_URL;
 
 function Register() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -9,7 +10,7 @@ function Register() {
   const onSubmit = (data) => {     
     try {   
       if(data.password === data.confirmPassword){
-      axios.post("http://localhost:3001/api/services/register",
+      axios.post(`${apiUrl}`,
         {
           email: data.Email,          
           password:data.password       

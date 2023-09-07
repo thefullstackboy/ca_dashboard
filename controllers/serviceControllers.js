@@ -89,6 +89,7 @@ const loginForm = async(req, res, next) => {
     const { email, password } = req.body;
    
      const user = await Register.findOne({ email });
+     
 
     if (user && (await bcrypt.compare(password, user.password))) {
       // Create token
@@ -105,6 +106,11 @@ const loginForm = async(req, res, next) => {
 
       // user
       res.status(200).json(user);
+     
+    }
+
+    else {
+      res.status(404).send({message:"login id or password not match"});
     }
 
   } catch (err) {
