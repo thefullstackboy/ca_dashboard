@@ -21,7 +21,7 @@ function ResetPassword() {
   </div>
   </form>
   </div>
-    <div className='login-box2'>   
+    <div className='login-box2 mt-2'>   
     <p className='text-center btn-primary fs-6 list-group-item'><Link to="/login">Already have an account, Login here</Link></p>  
 </div>
 </>

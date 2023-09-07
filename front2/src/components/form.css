@@ -9,7 +9,7 @@ html {
   }
   
   .login-box {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     width: 500px;
@@ -22,7 +22,7 @@ html {
   }
   
   .login-box2 {
-    position: absolute;
+    position: fixed;
     top: 85%;
     left: 50%;  
     transform: translate(-50%, -50%);  
@@ -65,10 +65,10 @@ html {
     text-decoration: none;
   }
 /* When the browser is at least 600px and above */
-@media (min-width: 300px) and (max-width: 500px) {
+@media (min-width: 300px) and (max-width: 1000px) {
     .login-box {
         position: absolute;
-        top: 50%;
+        top: 24%;
         left: 50%;
         width: 277px;
         padding: 20px;
@@ -78,4 +78,38 @@ html {
         border: 2px solid #9EADBA;
         border-radius: 10px;
       }
+
+      .login-box2 {
+        position: absolute;
+        top: 47%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-sizing: border-box;
+    }
   }
+
+  @media screen and (min-width: 375px) and (max-width: 667px) {
+    .login-box2 {
+      position: absolute;
+      top: 56%;
+      left: 53%;
+      transform: translate(-50%, -50%);
+      box-sizing: border-box;
+  }
+
+  .login-box {
+    position: absolute;
+    top: 27%;
+    left: 50%;
+    width: 277px;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    background-color: #ffff;
+    box-sizing: border-box;
+    border: 2px solid #9EADBA;
+    border-radius: 10px;
+}
+
+}
+
+  
