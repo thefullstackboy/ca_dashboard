@@ -16,15 +16,15 @@ const Sales = require('./models/sales');
 
 
 Service.insertMany(seedServices).then(result => {
-  console.log(result)
+  // console.log(result)
 })
 
 Leads.insertMany(leadsData).then(result => {
-  console.log(result)
+  // console.log(result)
 })
 
 Sales.insertMany(salesData).then(result => {
-  console.log(result)
+  // console.log(result)
 })
 
 mongoose.connect('mongodb://127.0.0.1:27017/cadashboard', {

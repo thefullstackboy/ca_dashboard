@@ -4,6 +4,7 @@ const Sales =  require('../models/leads');
 const Register = require('../models/register');
 let bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const nodemailer = require("nodemailer");
 
 // Get list
 const serviceList = async(req,res,next)=> {
@@ -120,8 +121,98 @@ const loginForm = async(req, res, next) => {
   }
 
   const forgotPassword = async(req, res, next) => {
+// email config
+
+const transporter = nodemailer.createTransport({
+  service:"gmail",
+  auth:{
+      user: "deepaksewani03@gmail.com",
+      pass: "dlkndekwqtxipiel"
+  }
+}) 
+
+    console.log(req.body)
+
+    const {email} = req.body;
+
+    if(!email){
+        res.status(401).json({status:401,message:"Enter Your Email"})
+    }
+
+    try {
+        const userfind = await Register.findOne({email:email});
+
+        // token generate for reset password
+        const token = jwt.sign({_id:userfind._id},process.env.TOKEN_KEY,{
+            expiresIn:"1d"
+        });
+        
+        const setusertoken = await Register.findByIdAndUpdate({_id:userfind._id},{OTP : Math.floor(100000 + Math.random() * 900000)},{new:true});
+
+   console.log("set$$",setusertoken.OTP)
+        if(setusertoken){
+            const mailOptions = {
+                from:process.env.EMAIL,
+                to:email,
+                subject:"Sending Email For password Reset",
+                text:`This is your OTP  ${setusertoken.OTP}`
+            }
+
+            transporter.sendMail(mailOptions,(error,info)=>{
+                if(error){
+                    console.log("error",error);
+                    res.status(401).json({status:401,message:"email not send"})
+                }else{
+                    console.log("Email sent",info.response);
+                    res.status(201).json({status:201,message:"Email sent Succsfully"})
+                }
+            })
+        }
+
+    } catch (error) {
+        res.status(401).json({status:401,message:"invalid user"})
+    } 
+  }
+
+  const verifyToken = async(req, res, next)=>{
+    const otpverify = req.body.otpverify;
+
+    try {
+        const validuser = await Register.findOne({OTP:otpverify});      
+        if(validuser){
+            res.status(201).json({status:201,message:"otp verify"})
+        }else{
+            res.status(401).json({status:401,message:"user not exist"})
+        }
+
+    } catch (error) {
+        res.status(401).json({status:401,error})
+    }
+  }
+
+
+  const restPassword = async(req, res, next)=> {
+    try {
+    let password = req.body.password;
+    console.log("password",password);
+    const options = { new: true };  
+    const id = req.params.id;
+    password = await bcrypt.hash(password, 10);
+  
+
+    const result = await Register.findByIdAndUpdate(
+         id, password, options
+    )
+    console.log("tretertertertert",result)
+
+    res.send({message:"change password su"})
+    
     
 
+    }
+      catch (error) {
+          res.status(400).json({message: error.message})    
+      }
   }
 module.exports = {
     serviceList,
@@ -130,5 +221,7 @@ module.exports = {
     salesList,
     registerForm,
     loginForm,
-    forgotPassword   
+    forgotPassword,
+    verifyToken,
+    restPassword   
   }

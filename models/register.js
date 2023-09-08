@@ -10,7 +10,14 @@ const RegisterSchema = new mongoose.Schema({
         type:String,
         required: true,       
     },    
-    token: { type: String }
+    token: { type: String },
+    OTP: {
+      type: Number
+    },
+    otpverify:{
+      type: Number
+    }
+    
 })
 
 const Register = mongoose.model('register',RegisterSchema);
