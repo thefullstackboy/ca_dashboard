@@ -1,31 +1,52 @@
 import React from 'react'
-import {Link } from "react-router-dom";
-import './form.css';
-
+import { useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import axios from 'axios'
 
 
 function ResetPassword() {
-  return (
-    <>
-    <div class="login-box">
-    <form>   
-    <h2 className='text-center text-dark'>Reset Password</h2>
-    <div class="mb-3">    
-      <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='New Password'/>
+    const [password, setPassword] = useState()
+    const navigate = useNavigate()
+    const {id, token} = useParams()
+
+    axios.defaults.withCredentials = true;
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        axios.post(`http://localhost:3001/reset-password/${id}/${token}`, {password})
+        .then(res => {
+            if(res.data.Status === "Success") {
+                navigate('/login')
+               
+            }
+        }).catch(err => console.log(err))
+    }
+
+    return(
+        <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
+      <div className="bg-white p-3 rounded w-25">
+        <h4>Reset Password</h4>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label htmlFor="email">
+              <strong>New Password</strong>
+            </label>
+            <input
+              type="password"
+              placeholder="Enter Password"
+              autoComplete="off"
+              name="password"
+              className="form-control rounded-0"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <button type="submit" className="btn btn-success w-100 rounded-0">
+            Update
+          </button>
+          </form>
+        
+      </div>
     </div>
-    <div class="mb-3">  
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder='Confirm Password'/>
-    </div>
-    <div class="text-center">
-    <button type="button" class="btn btn-primary mt-3">Reset Password</button>
-  </div>
-  </form>
-  </div>
-    <div className='login-box2 mt-2'>   
-    <p className='text-center btn-primary fs-6 list-group-item'><Link to="/login">Already have an account, Login here</Link></p>  
-</div>
-</>
-  )
+    )
 }
 
-export default ResetPassword
+export default ResetPassword;

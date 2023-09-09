@@ -122,56 +122,37 @@ const loginForm = async(req, res, next) => {
 
   const forgotPassword = async(req, res, next) => {
 // email config
-
-const transporter = nodemailer.createTransport({
-  service:"gmail",
-  auth:{
-      user: "deepaksewani03@gmail.com",
-      pass: "dlkndekwqtxipiel"
-  }
-}) 
-
-    console.log(req.body)
-
-    const {email} = req.body;
-
-    if(!email){
-        res.status(401).json({status:401,message:"Enter Your Email"})
-    }
-
-    try {
-        const userfind = await Register.findOne({email:email});
-
-        // token generate for reset password
-        const token = jwt.sign({_id:userfind._id},process.env.TOKEN_KEY,{
-            expiresIn:"1d"
-        });
-        
-        const setusertoken = await Register.findByIdAndUpdate({_id:userfind._id},{OTP : Math.floor(100000 + Math.random() * 900000)},{new:true});
-
-   console.log("set$$",setusertoken.OTP)
-        if(setusertoken){
-            const mailOptions = {
-                from:process.env.EMAIL,
-                to:email,
-                subject:"Sending Email For password Reset",
-                text:`This is your OTP  ${setusertoken.OTP}`
-            }
-
-            transporter.sendMail(mailOptions,(error,info)=>{
-                if(error){
-                    console.log("error",error);
-                    res.status(401).json({status:401,message:"email not send"})
-                }else{
-                    console.log("Email sent",info.response);
-                    res.status(201).json({status:201,message:"Email sent Succsfully"})
-                }
-            })
-        }
-
-    } catch (error) {
-        res.status(401).json({status:401,message:"invalid user"})
+const {email} = req.body;
+Register.findOne({email: email})
+.then(user => {
+    if(!user) {
+        return res.send({Status: "User not existed"})
     } 
+    const token = jwt.sign({id: user._id},process.env.TOKEN_KEY, {expiresIn: "1d"})
+    console.log("token%%%%%%%%%%%%%%",token)
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'deepaksewani03@gmail.com',
+          pass: 'dlkndekwqtxipiel'
+        }
+      });
+      
+      var mailOptions = {
+        from: 'deepaksewani03@gmail.com',
+        to: 'deepaksewani03@gmail.com',
+        subject: 'Reset Password Link',
+        text: `http://3000//reset_password/${user._id}/${token}`
+      };
+      
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          return res.send({Status: "Success"})
+        }
+      });
+}) 
   }
 
   const verifyToken = async(req, res, next)=>{
@@ -192,27 +173,23 @@ const transporter = nodemailer.createTransport({
 
 
   const restPassword = async(req, res, next)=> {
-    try {
-    let password = req.body.password;
-    console.log("password",password);
-    const options = { new: true };  
-    const id = req.params.id;
-    password = await bcrypt.hash(password, 10);
-  
+    const {id, token} = req.params
+    const {password} = req.body
 
-    const result = await Register.findByIdAndUpdate(
-         id, password, options
-    )
-    console.log("tretertertertert",result)
 
-    res.send({message:"change password su"})
-    
-    
-
-    }
-      catch (error) {
-          res.status(400).json({message: error.message})    
-      }
+    jwt.verify(token,process.env.TOKEN_KEY, (err, decoded) => {
+        if(err) {
+            return res.json({Status: "Error with token"})
+        } else {
+            bcrypt.hash(password, 10)
+            .then(hash => {
+                Register.findByIdAndUpdate({_id: id}, {password: hash})
+                .then(u => res.send({Status: "Success"}))
+                .catch(err => res.send({Status: err}))
+            })
+            .catch(err => res.send({Status: err}))
+        }
+    })
   }
 module.exports = {
     serviceList,

@@ -50,7 +50,7 @@ function Login() {
   <div class="text-center">
   <button type="submit" class="btn btn-primary mt-3">Login</button>
 </div>
-<p className='text-center btn-primary fs-6 mt-3 list-group-item'><Link to="/forgotpassword">Forgot your password</Link></p>
+<p className='text-center btn-primary fs-6 mt-3 list-group-item'><Link to="/forgot-password">Forgot your password</Link></p>
 
 
 </form>
