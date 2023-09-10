@@ -87,11 +87,8 @@ const loginForm = async(req, res, next) => {
   // Our login logic starts here
   try {
     // Get user input
-    const { email, password } = req.body;
-   
-     const user = await Register.findOne({ email });
-     
-
+    const { email, password } = req.body;   
+     const user = await Register.findOne({ email });   
     if (user && (await bcrypt.compare(password, user.password))) {
       // Create token
       const token = jwt.sign(
@@ -101,26 +98,21 @@ const loginForm = async(req, res, next) => {
           expiresIn: "2h",
         }
       );
-
       // save user token
       user.token = token;
-
       // user
-      res.status(200).json(user);
-     
+      res.status(200).json(user);     
     }
-
     else {
       res.status(404).send({message:"login id or password not match"});
     }
-
   } catch (err) {
     res.status(400).send("Invalid Credentials");
     console.log(err);
   }
   }
 
-  const forgotPassword = async(req, res, next) => {
+const forgotPassword = async(req, res, next) => {
 // email config
 const {email} = req.body;
 Register.findOne({email: email})
@@ -128,21 +120,20 @@ Register.findOne({email: email})
     if(!user) {
         return res.send({Status: "User not existed"})
     } 
-    const token = jwt.sign({id: user._id},process.env.TOKEN_KEY, {expiresIn: "1d"})
-    console.log("token%%%%%%%%%%%%%%",token)
+    const token = jwt.sign({id: user._id},process.env.TOKEN_KEY, {expiresIn: "120s"})  
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: 'deepaksewani03@gmail.com',
-          pass: 'dlkndekwqtxipiel'
+          user: process.env.MY_EMAIL,
+          pass: process.env.MY_PASSWORD
         }
       });
       
       var mailOptions = {
         from: 'deepaksewani03@gmail.com',
-        to: 'deepaksewani03@gmail.com',
+        to: email,
         subject: 'Reset Password Link',
-        text: `http://3000//reset_password/${user._id}/${token}`
+        text: `This link valid only 2 minutes http://localhost:3000/reset_password/${user._id}/${token}`
       };
       
       transporter.sendMail(mailOptions, function(error, info){
@@ -153,29 +144,13 @@ Register.findOne({email: email})
         }
       });
 }) 
-  }
-
-  const verifyToken = async(req, res, next)=>{
-    const otpverify = req.body.otpverify;
-
-    try {
-        const validuser = await Register.findOne({OTP:otpverify});      
-        if(validuser){
-            res.status(201).json({status:201,message:"otp verify"})
-        }else{
-            res.status(401).json({status:401,message:"user not exist"})
-        }
-
-    } catch (error) {
-        res.status(401).json({status:401,error})
-    }
-  }
-
+}
 
   const restPassword = async(req, res, next)=> {
     const {id, token} = req.params
     const {password} = req.body
-
+    console.log("id",id)
+    console.log("password",password)
 
     jwt.verify(token,process.env.TOKEN_KEY, (err, decoded) => {
         if(err) {
@@ -198,7 +173,6 @@ module.exports = {
     salesList,
     registerForm,
     loginForm,
-    forgotPassword,
-    verifyToken,
+    forgotPassword,  
     restPassword   
   }
