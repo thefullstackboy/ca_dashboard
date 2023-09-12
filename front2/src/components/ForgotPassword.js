@@ -19,11 +19,11 @@ function ForgotPassword() {
           console.log("respone status",response.status)             
         }).catch((error) => { // error is handled in catch block
           if (error.response) { // status code out of the range of 2xx
-            alert(error.response.data);           
+            alert("This email id not registered.");           
           } else if (error.request) { // The request was made but no response was received
-            console.log(error.request);
+            alert(error.request);
           } else {// Error on setting up the request
-            console.log('Error', error.message);
+            alert('Error', error.message);
           }
         });    
     } catch (e) {

@@ -118,7 +118,7 @@ const {email} = req.body;
 Register.findOne({email: email})
 .then(user => {
     if(!user) {
-        return res.send({Status: "User not existed"})
+        return res.status(404).send({Status: "User not existed"})
     } 
     const token = jwt.sign({id: user._id},process.env.TOKEN_KEY, {expiresIn: "120s"})  
     var transporter = nodemailer.createTransport({
