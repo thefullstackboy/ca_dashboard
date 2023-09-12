@@ -16,12 +16,14 @@ function Login() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({email: data.Email, password:data.password }),
+        body: JSON.stringify({email: data.Email, password:data.password}),
       });
 
       if (response.ok) {
         // Login was successful, handle the response accordingly
-        //const data = await response.json();
+        const data = await response.json();
+        console.log("##",data)
+        localStorage.setItem("token",data.token);
         alert("login successful");
         navigate("/home")
       } else {

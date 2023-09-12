@@ -101,7 +101,7 @@ const loginForm = async(req, res, next) => {
       // save user token
       user.token = token;
       // user
-      res.status(200).json(user);     
+      res.status(200).send({"token":user.token});     
     }
     else {
       res.status(404).send({message:"login id or password not match"});
