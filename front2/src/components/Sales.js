@@ -8,7 +8,11 @@ function Sales() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-      axios.get(`${apiUrl}`)
+        const token = localStorage.getItem('token');
+const headers = {
+  'Authorization': `Bearer ${token}`
+};
+      axios.get(`${apiUrl}`,{headers})
         .then(response => {
           setData(response.data);          
         })
@@ -23,7 +27,7 @@ function Sales() {
             <div className='row'>
               <div className='col-md-3 col-lg-2 col-sm-12 col-xl-2 mt-5'>
                   <ul class="list-group">
-                    <Link className="list-group-item" aria-current="true" to="/">Services</Link>
+                    <Link className="list-group-item" aria-current="true" to="/home">Services</Link>
                     <Link className="list-group-item mt-3"to="/leads" >Leads</Link>
                     <li className="list-group-item mt-3 text-white poco">Sales</li>
                   </ul>

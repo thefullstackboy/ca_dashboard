@@ -24,7 +24,7 @@ function Leads() {
             <div className='row'>
               <div className='col-md-3 col-lg-2 col-sm-12 col-xl-2 mt-5'>
                   <ul class="list-group">
-                    <Link className="list-group-item" aria-current="true" to="/">Services</Link>
+                    <Link className="list-group-item" aria-current="true" to="/home">Services</Link>
                     <li className="list-group-item mt-3 poco text-white">Leads</li>
                     <Link className="list-group-item mt-3" to="/sales">Sales</Link>
                   </ul>

@@ -68,7 +68,7 @@ function Register() {
 </form>
 </div>
 <div className='login-box2 mt-4'>   
-    <p className='text-center btn-primary fs-6 mt-3 list-group-item'><Link to="/login">Already have an account, Login here</Link></p>  
+    <p className='text-center btn-primary fs-6 mt-3 list-group-item'><Link to="/">Already have an account, Login here</Link></p>  
 </div>
     </div>
   )

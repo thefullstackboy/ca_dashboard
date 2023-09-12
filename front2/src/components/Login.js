@@ -2,10 +2,12 @@ import React from 'react'
 import {Link } from "react-router-dom";
 import './form.css';
 import { useForm } from "react-hook-form";
+import {useNavigate} from "react-router-dom"
 const apiUrl = process.env.REACT_APP_LOGIN_URL;
 
 function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const navigate = useNavigate();
 
   const onSubmit = async(data) => {     
     try {
@@ -21,6 +23,7 @@ function Login() {
         // Login was successful, handle the response accordingly
         //const data = await response.json();
         alert("login successful");
+        navigate("/home")
       } else {
         // Handle login error here
         alert('email id and password not match');

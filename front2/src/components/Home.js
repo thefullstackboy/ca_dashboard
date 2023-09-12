@@ -4,7 +4,7 @@ import axios from 'axios'
 import Navbar from './Navbar';
 const apiUrl = process.env.REACT_APP_API_URL;
 
-export default function () {
+function Home() {
 
   const [data, setData] = useState([]);
 
@@ -68,3 +68,5 @@ export default function () {
     </div>
   )
 }
+
+export default Home

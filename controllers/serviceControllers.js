@@ -95,7 +95,7 @@ const loginForm = async(req, res, next) => {
         { user_id: user._id, email },
         process.env.TOKEN_KEY,
         {
-          expiresIn: "2h",
+          expiresIn: "1h",
         }
       );
       // save user token
