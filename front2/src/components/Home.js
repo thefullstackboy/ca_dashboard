@@ -9,7 +9,13 @@ function Home() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get(`${apiUrl}`)
+    const token = localStorage.getItem('token');
+    console.log(token)
+const headers = {
+'Authorization': `Bearer ${token}`,
+'Content-Type': 'application/json',
+};
+  axios.get(`${apiUrl}`,{headers})
       .then(response => {
         setData(response.data);
       })

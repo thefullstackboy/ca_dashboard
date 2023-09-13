@@ -9,8 +9,10 @@ function Sales() {
 
     useEffect(() => {
         const token = localStorage.getItem('token');
+        console.log(token)
 const headers = {
-  'Authorization': `Bearer ${token}`
+  'Authorization': `Bearer ${token}`,
+  'Content-Type': 'application/json',
 };
       axios.get(`${apiUrl}`,{headers})
         .then(response => {
