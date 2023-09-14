@@ -41,14 +41,14 @@ const headers = {
        
                 {data.map(item => (
                   <>
-                         <label className="container">
+                         <label className="container" >
   <input type="checkbox" />
-  <span className="checkmark"></span>
+  <span className="checkmark" ></span>
 </label>
                 <span className='border border-primary box'>
                 <div className="row g-3 align-items-center">
   <div className="col-auto">
-    <label for="inputPassword6" className="col-form-label">{item.service_name}</label>
+    <label htmlFor="inputPassword6" className="col-form-label" key={item._id}>{item.service_name}</label>
     <input type="number" id="inputPassword6" className="form-control" value={item.price} aria-describedby="passwordHelpInline"/>
   </div>
   <div className="col-auto">

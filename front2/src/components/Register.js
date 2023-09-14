@@ -38,32 +38,32 @@ function Register() {
   }  
   return (
     <div>      
-            <div class="login-box">
+            <div className="login-box">
   <form onSubmit={handleSubmit(onSubmit)}>
   <h2 className='text-center text-dark'>Register</h2>
-  <div class="mb-3">    
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Email address'
+  <div className="mb-3">    
+    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Email address'
        {...register("Email", {required: true, pattern: /^\S+@\S+$/i})}    
     />
       {errors.Email && <p className='text-danger'>* Please check the email id.</p>}
   </div>
-  <div class="mb-3">  
-    <input type="password" class="form-control"  placeholder='password'
+  <div className="mb-3">  
+    <input type="password" className="form-control"  placeholder='password'
       {...register("password",
       {required: true})}                               
     /> 
      {errors.password && <p className='text-danger'>* minimum one characters</p>}   
   </div>
 
-  <div class="mb-3">  
-    <input type="password" class="form-control"  placeholder='confirm password'
+  <div className="mb-3">  
+    <input type="password" className="form-control"  placeholder='confirm password'
      {...register("confirmPassword",
      {required: true})} 
     />
      {errors.confirmPassword && <p className='text-danger'>* minimum one characters</p>}   
   </div>
-  <div class="text-center">
-  <button type="submit" class="btn btn-primary mt-3">Register</button>
+  <div className="text-center">
+  <button type="submit" className="btn btn-primary mt-3">Register</button>
 </div>
 </form>
 </div>

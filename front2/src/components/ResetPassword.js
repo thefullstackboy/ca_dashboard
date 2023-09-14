@@ -6,22 +6,6 @@ import axios from 'axios'
 
 
 function ResetPassword() {
-    // const [password, setPassword] = useState()
-    // const navigate = useNavigate()
-    // const {id, token} = useParams()
-
-    // axios.defaults.withCredentials = true;
-    // const handleSubmit = (e) => {
-    //     e.preventDefault()
-    //     axios.post(`http://localhost:3001/api/services/reset-password/${id}/${token}`, {password})
-    //     .then(res => {
-    //         if(res.data.Status === "Success") {
-    //             navigate('/login')
-               
-    //         }
-    //     }).catch(err => console.log(err))
-    // }
-
     const { register, handleSubmit, formState: { errors } } = useForm();
     const {id, token} = useParams()
     const onSubmit = (data) => {     
@@ -55,26 +39,26 @@ function ResetPassword() {
 
     return(
       <div>      
-      <div class="login-box">
+      <div className="login-box">
 <form onSubmit={handleSubmit(onSubmit)}>
 <h2 className='text-center text-dark'>Reset Password</h2>
-<div class="mb-3">  
-<input type="password" class="form-control"  placeholder='password'
+<div className="mb-3">  
+<input type="password" className="form-control"  placeholder='password'
 {...register("password",
 {required: true})}                               
 /> 
 {errors.password && <p className='text-danger'>* minimum one characters</p>}   
 </div>
 
-<div class="mb-3">  
-<input type="password" class="form-control"  placeholder='confirm password'
+<div className="mb-3">  
+<input type="password" className="form-control"  placeholder='confirm password'
 {...register("confirmPassword",
 {required: true})} 
 />
 {errors.confirmPassword && <p className='text-danger'>* minimum one characters</p>}   
 </div>
-<div class="text-center">
-<button type="submit" class="btn btn-primary mt-3">Update New Password</button>
+<div className="text-center">
+<button type="submit" className="btn btn-primary mt-3">Update New Password</button>
 </div>
 </form>
 </div>
