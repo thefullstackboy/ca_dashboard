@@ -3,18 +3,7 @@
 }
 
 /* The container */
-.container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+
 
 /* Hide the browser's default checkbox */
 .container input {
@@ -81,19 +70,7 @@
   height: 53px;
 }
 
-/* The container */
-.container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+
 
 /* Hide the browser's default checkbox */
 .container input {
@@ -167,17 +144,33 @@ input[type=number] {
   float: left;
 }
 
-.abe {
-  width: 317px;
+.abe1 {
+  width: 113%;
   padding: 5px;
 }
 
 .abe2 {
-  width: 421px;
+  width: 113%;
   padding: 5px;
 }
 
 .abe3 {
-  width: 210px;
+  width: 120%;
   padding: 5px;
 }
+
+.abe4 {
+  width: 108.2%;
+  padding: 5px;
+}
+
+.abe5 {
+  width: 108.2%;
+  padding: 5px;
+}
+
+.abe6 {
+  width: 100%;
+  padding: 5px;
+}
+

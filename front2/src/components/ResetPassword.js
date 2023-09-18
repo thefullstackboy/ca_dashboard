@@ -56,7 +56,7 @@ function ResetPassword() {
       <button type="submit">Reset Password</button>
     </form>
   </div>   
-    <p className='text-center btn-primary fs-6 list-group-item pmt'><Link to="/">Already have an account, Login here</Link></p>  
+    <p className='text-center  fs-6  pmt'><Link to="/">Already have an account, Login here</Link></p>  
 </div>
 </div>
     )

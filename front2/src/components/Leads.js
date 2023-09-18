@@ -41,7 +41,7 @@ const headers = {
                     data.map((index)=>{
                         return (
                             <>
-                             <p className='border border-primary abe'  key={index.pk}>{index.email}</p>
+                             <p className='border border-primary abe4'  key={index.pk}>{index.email}</p>
                             </>
                         )
                     })
@@ -52,7 +52,7 @@ const headers = {
                     data.map((index)=>{
                         return (
                             <>
-                             <p className='border border-primary abe' key={index.pk}>{index.service_name}</p>
+                             <p className='border border-primary abe5' key={index.pk}>{index.service_name}</p>
                             </>
                         )
                     })
@@ -63,7 +63,7 @@ const headers = {
                     data.map((index)=>{
                         return (
                             <>
-                             <p className='border border-primary abe'  key={index.pk}>{index.date}</p>
+                             <p className='border border-primary abe6'  key={index.pk}>{index.date}</p>
                             </>
                         )
                     })

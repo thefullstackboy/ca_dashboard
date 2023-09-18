@@ -29,7 +29,7 @@ const headers = {
 
           <div className='container-fluid'>
             <div className='row'>
-              <div className='col-md-3 col-lg-2 col-sm-12 col-xl-2 mt-5'>
+              <div className='col-md-3 col-lg-3 col-sm-12 col-xl-3 mt-5'>
                   <ul className="list-group">
                     <li className="list-group-item poco text-white" aria-current="true">Services</li>
                     <Link className="list-group-item mt-3" to="/leads">Leads</Link>
@@ -37,7 +37,7 @@ const headers = {
                   </ul>
               </div> 
 
-              <div className='col-md-9 mt-3'>
+              <div className='col-md-9 col-lg-9 col-sm-12 col-xl-9 mt-5'>
        
                 {data.map(item => (
                   <>
@@ -50,10 +50,6 @@ const headers = {
   <div className="col-auto">
     <label htmlFor="inputPassword6" className="col-form-label" key={item._id}>{item.service_name}</label>
     <input type="number" id="inputPassword6" className="form-control" value={item.price} aria-describedby="passwordHelpInline"/>
-  </div>
-  <div className="col-auto">
-    
-
   </div>
   <div className="col-auto">
     <span id="passwordHelpInline text-right" className="form-text">

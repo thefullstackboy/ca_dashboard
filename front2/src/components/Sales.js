@@ -27,7 +27,7 @@ const headers = {
         <Navbar/>
         <div className='container-fluid'>
             <div className='row'>
-              <div className='col-md-3 col-lg-2 col-sm-12 col-xl-2 mt-5'>
+              <div className='col-md-4 col-lg-2 col-sm-12 col-xl-2 mt-5 '>
                   <ul class="list-group">
                     <Link className="list-group-item" aria-current="true" to="/home">Services</Link>
                     <Link className="list-group-item mt-3"to="/leads" >Leads</Link>
@@ -40,7 +40,7 @@ const headers = {
                     data.map((index)=>{
                         return (
                             <>
-                             <p className='border border-primary abe2'  key={index.pk}>{index.email}</p>
+                             <p className='border border-primary abe1'  key={index.pk}>{index.email}</p>
                             </>
                         )
                     })
@@ -62,7 +62,7 @@ const headers = {
                     data.map((index)=>{
                         return (
                             <>
-                             <p className='border border-primary abe2'  key={index.pk}>{index.date}</p>
+                             <p className='border border-primary abe3'  key={index.pk}>{index.date}</p>
                             </>
                         )
                     })
@@ -73,7 +73,7 @@ const headers = {
                     data.map((index)=>{
                         return (
                             <>
-                             <p className='border border-primary abe3 text-center'  key={index.pk}>{index.current_status}</p>
+                             <p className=' border-primary  text-center abe4'  key={index.pk}>{index.current_status}</p>
                             </>
                         )
                     })

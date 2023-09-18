@@ -48,10 +48,10 @@ function Login() {
     /> 
      {errors.password && <p className='text-danger'>* minimum one characters</p>}   
       <button type='submit'>login</button>
-      <p className='text-center btn-primary fs-6 mt-3 list-group-item'><Link to="/forgot-password">Forgot your password</Link></p>
+      <p className='text-center  fs-6 mt-3'><Link to="/forgot-password">Forgot your password</Link></p>
     </form>
   </div>   
-    <p className='text-center btn-primary fs-6 list-group-item pmt'><Link to="/register">Don't  have a account, Create here Register</Link></p>  
+    <p className='text-center  fs-6  pmt'><Link to="/register">Don't  have a account, Create here Register</Link></p>  
 </div>
     </>
   )
