@@ -39,31 +39,24 @@ function ResetPassword() {
 
     return(
       <div>      
-      <div className="login-box">
-<form onSubmit={handleSubmit(onSubmit)}>
-<h2 className='text-center text-dark'>Reset Password</h2>
-<div className="mb-3">  
-<input type="password" className="form-control"  placeholder='password'
-{...register("password",
-{required: true})}                               
-/> 
-{errors.password && <p className='text-danger'>* minimum one characters</p>}   
-</div>
+<div class="login-page">
+  <div class="form">  
+    <form class="login-form" onSubmit={handleSubmit(onSubmit)}>
+      <input type="password" className="form-control"  placeholder='password'
+      {...register("password",
+      {required: true})}                               
+    />     
+     {errors.password && <p className='text-danger'>* minimum one characters</p>}
 
-<div className="mb-3">  
-<input type="password" className="form-control"  placeholder='confirm password'
-{...register("confirmPassword",
-{required: true})} 
-/>
-{errors.confirmPassword && <p className='text-danger'>* minimum one characters</p>}   
-</div>
-<div className="text-center">
-<button type="submit" className="btn btn-primary mt-3">Update New Password</button>
-</div>
-</form>
-</div>
-<div className='login-box2 mt-4'>   
-<p className='text-center btn-primary fs-6 mt-3 list-group-item'><Link to="/login">Already have an account, Login here</Link></p>  
+         <input type="password" className="form-control"  placeholder='confirm password'
+     {...register("confirmPassword",
+     {required: true})} 
+    />
+     {errors.confirmPassword && <p className='text-danger'>* minimum one characters</p>}  
+      <button type="submit">Reset Password</button>
+    </form>
+  </div>   
+    <p className='text-center btn-primary fs-6 list-group-item pmt'><Link to="/">Already have an account, Login here</Link></p>  
 </div>
 </div>
     )

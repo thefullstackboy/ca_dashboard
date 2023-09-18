@@ -33,29 +33,20 @@ function ForgotPassword() {
   } 
   return (
     <div>
-            <div class="login-box">
-            <form onSubmit={handleSubmit(onSubmit)}>
-  <h2 className='text-center text-dark'>Forgot Password</h2> 
-  <div class="mb-3">    
+<div class="login-page">
+  <div class="form">  
+    <form class="login-form" onSubmit={handleSubmit(onSubmit)}>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder='Email address'
        {...register("Email", {required: true, pattern: /^\S+@\S+$/i})}    
     />
       {errors.Email && <p className='text-danger'>* Please check the email id.</p>}
-  </div>
-  {/* <div class="mb-3">  
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder='OTP'/>
-  </div> */}
-  <div class="text-center">
- 
-  <button type="submit" class="btn btn-primary mt-3">Reset Password</button>
-  
+      
+   
+      <button type="submit">Reset Password</button>
+    </form>
+  </div>   
+    <p className='text-center btn-primary fs-6 list-group-item pmt'><Link to="/">Already have an account, Login here</Link></p>  
 </div>
-</form>
-</div>
-<div className='login-box2 mt-2'>   
-    <p className='text-center btn-primary fs-6 mt-3 list-group-item'><Link to="/login">Already have an account, Login here</Link></p>  
-</div>
-
     </div>
   )
 }
