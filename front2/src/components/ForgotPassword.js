@@ -3,6 +3,7 @@ import {Link } from "react-router-dom";
 import axios from 'axios'
 import { useForm } from "react-hook-form";
 import './form.css';
+const apiUrl = process.env.REACT_APP_FORGOT_PASSWORD_URL;
 
 function ForgotPassword() {
 
@@ -10,7 +11,7 @@ function ForgotPassword() {
   const onSubmit = (data) => {     
     try {   
 
-      axios.post("http://localhost:3001/api/services/forgotpassword",
+      axios.post(apiUrl,
         {
           email: data.Email,                     
         }).then((response)=>{
